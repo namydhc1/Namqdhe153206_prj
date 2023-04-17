@@ -4,17 +4,32 @@ package model;
 import java.sql.Date;
 
 
-public class Storage {
+public class Product {
 
     private int id;
-    private String name;
+    private String pname;
     private Date dateofWarehousing;
     private int quantityWarehousing;
     private int purchaseMoney;
-    private int stocks;
-    private String types;
+    private int inventory;
+    private int cid;
     private int unitprice;   
     private int quantitysell;
+
+    public Product() {
+    }
+
+    public Product(int id, String pname, Date dateofWarehousing, int quantityWarehousing, int purchaseMoney, int inventory, int cid, int unitprice, int quantitysell) {
+        this.id = id;
+        this.pname = pname;
+        this.dateofWarehousing = dateofWarehousing;
+        this.quantityWarehousing = quantityWarehousing;
+        this.purchaseMoney = purchaseMoney;
+        this.inventory = inventory;
+        this.cid = cid;
+        this.unitprice = unitprice;
+        this.quantitysell = quantitysell;
+    }
 
     public int getId() {
         return id;
@@ -24,12 +39,12 @@ public class Storage {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPname() {
+        return pname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPname(String pname) {
+        this.pname = pname;
     }
 
     public Date getDateofWarehousing() {
@@ -56,20 +71,20 @@ public class Storage {
         this.purchaseMoney = purchaseMoney;
     }
 
-    public int getStocks() {
-        return stocks;
+    public int getInventory() {
+        return inventory;
     }
 
-    public void setStocks(int stocks) {
-        this.stocks = stocks;
+    public void setInventory(int inventory) {
+        this.inventory = inventory;
     }
 
-    public String getTypes() {
-        return types;
+    public int getCid() {
+        return cid;
     }
 
-    public void setTypes(String types) {
-        this.types = types;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     public int getUnitprice() {
@@ -87,5 +102,7 @@ public class Storage {
     public void setQuantitysell(int quantitysell) {
         this.quantitysell = quantitysell;
     }
+
+    
     
 }

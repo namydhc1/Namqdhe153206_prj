@@ -1,7 +1,7 @@
 
 package model;
 
-public class ItemTypes {
+public class Category {
     private int id;
     private String name;
 
