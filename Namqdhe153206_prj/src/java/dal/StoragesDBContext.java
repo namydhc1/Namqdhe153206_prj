@@ -78,12 +78,12 @@ public class StoragesDBContext extends DBContext {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Product s = new Product();
-                s.setId(rs.getInt("id"));
-                s.setPname(rs.getString("name"));
+                s.setId(rs.getInt("pid"));
+                s.setPname(rs.getString("pname"));
                 s.setDateofWarehousing(rs.getDate("dateofWarehousing"));
                 s.setPurchaseMoney(rs.getInt("purchaseMoney"));
                 s.setQuantityWarehousing(rs.getInt("quantityWarehousing"));
-                s.setInventory(rs.getInt("stocks"));
+                s.setInventory(rs.getInt("inventory"));
                 s.setCid(rs.getInt("cid"));
                 s.setUnitprice(rs.getInt("unitprice"));
                 storages.add(s);
@@ -157,13 +157,13 @@ public class StoragesDBContext extends DBContext {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Product s = new Product();
-                s.setId(rs.getInt("id"));
-                s.setPname(rs.getString("name"));
+                s.setId(rs.getInt("pid"));
+                s.setPname(rs.getString("pname"));
                 s.setDateofWarehousing(rs.getDate("dateofWarehousing"));
                 s.setPurchaseMoney(rs.getInt("purchaseMoney"));
                 s.setQuantityWarehousing(rs.getInt("quantityWarehousing"));
-                s.setInventory(rs.getInt("stocks"));
-                s.setCid(rs.getInt("types"));
+                s.setInventory(rs.getInt("inventory"));
+                s.setCid(rs.getInt("cid"));
                 s.setUnitprice(rs.getInt("unitprice"));
                 return s;
             }
