@@ -2,22 +2,22 @@
 package model;
 
 public class Category {
-    private int id;
-    private String name;
+    private int cid;
+    private String cname;
 
     public int getId() {
-        return id;
+        return cid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int cid) {
+        this.cid = cid;
     }
 
     public String getName() {
-        return name;
+        return cname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String cname) {
+        this.cname = cname;
     }
 }

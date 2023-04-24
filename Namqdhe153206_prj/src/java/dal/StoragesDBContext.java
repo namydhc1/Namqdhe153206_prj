@@ -64,7 +64,7 @@ public class StoragesDBContext extends DBContext {
         ArrayList<Product> storages = new ArrayList<>();
         try {
             String sql = "SELECT s.id, s.name, s.dateofWarehousing,s.purchaseMoney,s.quantityWarehousing,s.stocks,s.types,s.unitprice FROM \n"
-                    + "(SELECT *, ROW_NUMBER() OVER (ORDER BY dateofWarehousing DESC) as row_index FROM Storage_HE153206) s INNER JOIN Account_HE153206 a\n"
+                    + "(SELECT *, ROW_NUMBER() OVER (ORDER BY dateofWarehousing DESC) as row_index FROM Product) s INNER JOIN Account a\n"
                     + "ON s.username = a.username \n"
                     + "	WHERE row_index >= (?-1)*?+ 1\n"
                     + "	AND row_index <= ? * ?\n"
@@ -95,14 +95,14 @@ public class StoragesDBContext extends DBContext {
     }
 
     public void insertItems(Product p, String username) {
-        String sql = "INSERT INTO [dbo].[Storage_HE153206]\n"
-                + "           ([name]\n"
+        String sql = "INSERT INTO [dbo].[Product]\n"
+                + "           ([pname]\n"
                 + "           ,[dateofWarehousing]\n"
                 + "           ,[purchaseMoney]\n"
                 + "           ,[quantityWarehousing]\n"
-                + "           ,[stocks]\n"
+                + "           ,[inventory]\n"
                 + "           ,[types]\n"
-                + "           ,[username]\n"
+                + "           ,[cid]\n"
                 + "           ,[unitprice])\n"
                 + "     VALUES\n"
                 + "           (?\n"
@@ -116,14 +116,14 @@ public class StoragesDBContext extends DBContext {
         PreparedStatement stm = null;
         try {
             stm = connection.prepareStatement(sql);
-            stm.setString(1, s.getName());
-            stm.setDate(2, s.getDateofWarehousing());
-            stm.setInt(3, s.getPurchaseMoney());
-            stm.setInt(4, s.getQuantityWarehousing());
-            stm.setInt(5, s.getStocks());
-            stm.setString(6, s.getTypes());
+            stm.setString(1, p.getPname());
+            stm.setDate(2, p.getDateofWarehousing());
+            stm.setInt(3, p.getPurchaseMoney());
+            stm.setInt(4, p.getQuantityWarehousing());
+            stm.setInt(5, p.getInventory());
+            stm.setInt(6, p.getCid());
             stm.setString(7, username);
-            stm.setInt(8, s.getUnitprice());
+            stm.setInt(8, p.getUnitprice());
             stm.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(StoragesDBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -148,9 +148,9 @@ public class StoragesDBContext extends DBContext {
 
     public Product getStorage(int id, String username) {
         try {
-            String sql = "SELECT * FROM Storage_HE153206\n"
+            String sql = "SELECT * FROM Product\n"
                     + "WHERE username = ?\n"
-                    + "AND id = ?";
+                    + "AND pid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(2, id);
             stm.setString(1, username);
@@ -176,19 +176,19 @@ public class StoragesDBContext extends DBContext {
     public Product getOrderStorage(int id) {
         PreparedStatement stm = null;
         try {
-            String sql = "SELECT * FROM Storage_HE153206\n"
-                    + "WHERE id = ?";
+            String sql = "SELECT * FROM Product\n"
+                    + "WHERE pid = ?";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 Product s = new Product();
-                s.setId(rs.getInt("id"));
-                s.setPname(rs.getString("name"));
+                s.setId(rs.getInt("pid"));
+                s.setPname(rs.getString("pname"));
                 s.setDateofWarehousing(rs.getDate("dateofWarehousing"));
                 s.setPurchaseMoney(rs.getInt("purchaseMoney"));
                 s.setQuantityWarehousing(rs.getInt("quantityWarehousing"));
-                s.setInventory(rs.getInt("stocks"));
+                s.setInventory(rs.getInt("inventory"));
                 s.setCid(rs.getInt("cid"));
                 s.setUnitprice(rs.getInt("unitprice"));
                 return s;
@@ -215,27 +215,27 @@ public class StoragesDBContext extends DBContext {
     }
 
     public void updateItems(Product s, String username) {
-        String sql = "UPDATE [Storage_HE153206]\n"
-                + "   SET [name] = ?\n"
+        String sql = "UPDATE [Product]\n"
+                + "   SET [pname] = ?\n"
                 + "      ,[dateofWarehousing] = ?\n"
                 + "      ,[purchaseMoney] = ?\n"
                 + "      ,[quantityWarehousing] = ?\n"
-                + "      ,[stocks] = ?\n"
-                + "      ,[types] = ?\n"
+                + "      ,[inventory] = ?\n"
+                + "      ,[cid] = ?\n"
                 + "      ,[username] = ?\n"
                 + "      ,[unitprice] = ?\n"
-                + " WHERE [id] = ?";
+                + " WHERE [pid] = ?";
         PreparedStatement stm = null;
         try {
             stm = connection.prepareStatement(sql);
 
             stm.setInt(9, s.getId());
-            stm.setString(1, s.getName());
+            stm.setString(1, s.getPname());
             stm.setDate(2, s.getDateofWarehousing());
             stm.setInt(3, s.getPurchaseMoney());
             stm.setInt(4, s.getQuantityWarehousing());
-            stm.setInt(5, s.getStocks());
-            stm.setString(6, s.getTypes());
+            stm.setInt(5, s.getInventory());
+            stm.setInt(6, s.getCid());
             stm.setString(7, username);
             stm.setInt(8, s.getUnitprice());
             stm.executeUpdate();
@@ -261,8 +261,8 @@ public class StoragesDBContext extends DBContext {
     }
 
     public void deleteStudent(Product s, String username) {
-        String sql = "DELETE FROM [Storage_HE153206]\n"
-                + "      WHERE id = ? \n"
+        String sql = "DELETE FROM [Product]\n"
+                + "      WHERE pid = ? \n"
                 + "	  AND username = ?";
         PreparedStatement stm = null;
         try {
@@ -294,9 +294,9 @@ public class StoragesDBContext extends DBContext {
     }
 
     public void updateStocks(int storageid, int i) {
-        String sql = " UPDATE Storage_HE153206\n"
-                + " SET stocks = ?\n"
-                + " WHERE id = ? ";
+        String sql = " UPDATE Product\n"
+                + " SET inventory = ?\n"
+                + " WHERE pid = ? ";
         PreparedStatement stm = null;
         try {
             stm = connection.prepareStatement(sql);

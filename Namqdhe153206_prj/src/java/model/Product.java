@@ -6,7 +6,7 @@ import java.sql.Date;
 
 public class Product {
 
-    private int id;
+    private int pid;
     private String pname;
     private Date dateofWarehousing;
     private int quantityWarehousing;
@@ -19,8 +19,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String pname, Date dateofWarehousing, int quantityWarehousing, int purchaseMoney, int inventory, int cid, int unitprice, int quantitysell) {
-        this.id = id;
+    public Product(int pid, String pname, Date dateofWarehousing, int quantityWarehousing, int purchaseMoney, int inventory, int cid, int unitprice, int quantitysell) {
+        this.pid = pid;
         this.pname = pname;
         this.dateofWarehousing = dateofWarehousing;
         this.quantityWarehousing = quantityWarehousing;
@@ -32,11 +32,11 @@ public class Product {
     }
 
     public int getId() {
-        return id;
+        return pid;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.pid = id;
     }
 
     public String getPname() {
