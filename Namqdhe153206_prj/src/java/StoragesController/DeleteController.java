@@ -1,8 +1,8 @@
 
-package storage_controlelr;
+package StoragesController;
 
-import account_controller.BaseAuthController;
-import dal.StorageDBContext;
+import controller.BaseAuthController;
+import dal.StoragesDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Account;
-import model.Storage;
+import model.Product;
 
 
 public class DeleteController extends BaseAuthController {
@@ -31,8 +31,8 @@ public class DeleteController extends BaseAuthController {
         Account account = (Account) session.getAttribute("account");
         
         int id = Integer.parseInt(request.getParameter("id"));
-        StorageDBContext db = new StorageDBContext();
-        Storage s = new Storage();
+        StoragesDBContext db = new StoragesDBContext();
+        Product s = new Product();
         s.setId(id);
         db.deleteStudent(s, account.getUsername());
         response.sendRedirect("display");

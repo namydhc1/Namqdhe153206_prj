@@ -28,11 +28,11 @@ public class UpdateController extends BaseAuthController {
 
         int id = Integer.parseInt(request.getParameter("id"));
         TypesDBContext db = new TypesDBContext();
-        ArrayList<ItemTypes> types = db.getTypes();
+        ArrayList<Category> types = db.getTypes();
         request.setAttribute("types", types);;
 
-        StorageDBContext stoDB = new StorageDBContext();
-        Storage storage = stoDB.getStorage(id, account.getUsername());
+        StoragesDBContext stoDB = new StoragesDBContext();
+        Product storage = stoDB.getStorage(id, account.getUsername());
         request.setAttribute("storage", storage);
 
         request.getRequestDispatcher("view/storage/update.jsp").forward(request, response);
@@ -52,38 +52,38 @@ public class UpdateController extends BaseAuthController {
 
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        String raw_id = request.getParameter("id");
-        String raw_name = request.getParameter("name");
+        String raw_pid = request.getParameter("pid");
+        String raw_pname = request.getParameter("pname");
         String raw_purchaseMoney = request.getParameter("purchaseMoney");
         String raw_quantity = request.getParameter("quantityWarehousing");
-        String raw_stocks = request.getParameter("stocks");
+        String raw_inventory = request.getParameter("inventory");
         String raw_doW = request.getParameter("dateofWarehousing");
-        String raw_types = request.getParameter("types");
+        String raw_cid = request.getParameter("cid");
         String raw_unitprice = request.getParameter("unitprice");
         //validate data
         int unitprice = Integer.parseInt(raw_unitprice);
-        int id = Integer.parseInt(raw_id);
+        int pid = Integer.parseInt(raw_pid);
         int purchaseMoney = Integer.parseInt(raw_purchaseMoney);
         int quantity = Integer.parseInt(raw_quantity);
-        int stocks = Integer.parseInt(raw_stocks);
-        String types = raw_types;
+        int inventory = Integer.parseInt(raw_inventory);
+        String cid = raw_cid;
 
-        String name = raw_name;
+        String pname = raw_pname;
 
         Date doW = Date.valueOf(raw_doW);
 
-        ItemTypes t = new ItemTypes();
-        t.setName(types);
-        Storage s = new Storage();
-        s.setId(id);
-        s.setName(name);
+        Category t = new Category();
+        t.setName(cid);
+        Product s = new Product();
+        s.setId(pid);
+        s.setPname(pname);
         s.setDateofWarehousing(doW);
         s.setQuantityWarehousing(quantity);
         s.setPurchaseMoney(purchaseMoney);
-        s.setStocks(stocks);
-        s.setTypes(t.getName());
+        s.setInventory(inventory);
+        s.setCid(t.getId());
         s.setUnitprice(unitprice);
-        StorageDBContext db = new StorageDBContext();
+        StoragesDBContext db = new StoragesDBContext();
         db.updateItems(s, account.getUsername());
 
         //response.getWriter().println("done");
