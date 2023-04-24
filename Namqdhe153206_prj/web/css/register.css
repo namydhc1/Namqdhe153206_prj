@@ -1,0 +1,72 @@
+
+body,html{
+    height: 100%;
+    margin: 0;
+
+}
+.bg-img {
+    /* The image used */
+      
+      background-image: url("../image/loginbackground.jpg");
+    /* Control the height of the image */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+h1 {
+    margin-top: 0px;
+    width: 300px;
+    height: 30px;
+    color: aqua;
+    padding-top: 100px;
+    padding-left: 40px;
+    margin-right: auto;
+}
+.register {
+    padding-top: 50px;
+    width: 300px;
+    height: 300px;
+
+    border-radius: 10px;
+    text-align: center;
+
+    margin-right: auto;
+    border: 1px;
+    outline: none;
+}
+input {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+p {
+    font-size: 20px;
+    color: White;
+}
+#register {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: black;
+    background-color: deepskyblue;
+}
+#register:hover {
+    font-size: 20px;
+}
+#login {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+    text-decoration: none;  
+}
+#login:hover {
+    font-size: 20px;
+}

@@ -1,0 +1,56 @@
+.top{
+background-color: rgb(13, 56, 42);
+display: flex;
+height: 100px;
+
+}
+.home{
+    padding-left: 100px;
+    font-size: 50px;
+    color: black;
+    padding-top: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.title{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 50px;
+
+}
+
+.user-name{
+    padding-left: 1500px;
+    padding-top: 50px;
+    color:white;
+}
+
+
+.user-infor{
+   line-height: 40px;
+   padding-left: 20%;
+}
+table, th, td {
+    border:1px solid black;
+    text-align: center;
+    width: 80%;
+    border-radius: 5px;
+  }
+table{
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+.bot{
+    background-color: rgb(9, 77, 77);
+    height: 50px;
+    width: 100%;
+}
+.edit{
+    padding-left: 1000px;
+    margin-top: 300px;
+    color: rgb(85, 101, 165);
+    width: 50px;
+}
+.mid{
+    margin-bottom: 350px;
+}

@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 19, 2022, 9:35:52 PM
+    Author     : LENOVO
+*/
+
+
+#home {
+    border: 1px solid black;
+    background: orange;
+    text-decoration: none;    
+}
+#home:hover {
+    color: activeborder;
+    font-size: 20px;
+}
+
+#list {
+    border: 1px solid blanchedalmond;
+    background-color: grey;
+    color: white;
+
+     text-decoration: none;   
+}
+#list:hover {
+    font-size: 20px;
+    color: black;
+     text-decoration: none;   
+}
+
+#table {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+input[type=date] {
+    font-size: 30px;
+    color: red;
+    border: none;
+}
+.font-word {
+    font-size: 30px;
+    margin-top: 30px;
+}
+input[type=submit] {
+    font-size: 20px;
+    color: #f2aa4cff;
+    border: 1px solid black;
+}
+input[type=submit]:hover {
+    font-size: 26px;
+    
+}
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+tr:nth-child(1) {background: aqua;
+font-weight: bold;
+}

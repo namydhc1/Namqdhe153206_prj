@@ -1,0 +1,50 @@
+body,html{
+    height: 100%;
+    margin: 0;
+    
+}
+.bg-img {
+   /* The image used */
+   
+  background-image: url("../image/home.jpg");
+  /* Control the height of the image */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+body {
+    text-align: center;
+   
+}
+h2 {
+    margin: 0;   
+}
+ a {
+    text-decoration: none;
+    color: coral;
+}
+h2 a:hover {
+    font-size: 26px;
+    color: white;
+}
+h1 {
+    color: bisque;
+}
+.container {
+    display: table;
+}
+.centered {
+    display: table-cell;
+      height: 500px;
+      width: 1500px;
+
+    text-align: center;
+    vertical-align: middle;
+    }
+#display {
+    
+    width: 100%;
+}
