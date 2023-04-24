@@ -5,6 +5,7 @@
 
 package orderController;
 
+import dal.OrderDBContext;
 import dal.StoragesDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -91,19 +92,19 @@ public class ConfirmController extends HttpServlet {
         
         Order o = new Order();
    
-        o.setOrderdate(orderdate);
+        o.setOrder_date(orderdate);
   
         o.setProfit(neworder.getTotalProfit());
         
 
-        for (int i = 0 ; i < sids.length; i++) {
-            int storageid = Integer.parseInt(sids[i]);
+        for (int i = 0 ; i < pids.length; i++) {
+            int storageid = Integer.parseInt(pids[i]);
             int validatequantity = Integer.parseInt(quantity[i]);
             Product s = new Product();
             StoragesDBContext dbs = new StoragesDBContext();
             s = dbs.getOrderStorage(storageid);
-            int newstocks = s.getStocks() - validatequantity;
-            StorageDBContext dbstorage = new StorageDBContext();
+            int newstocks = s.getInventory() - validatequantity;
+            StoragesDBContext dbstorage = new StoragesDBContext();
             dbstorage.updateStocks(storageid, newstocks);
             OrderDetail od  = new OrderDetail();
             od.setStorage(s);
