@@ -5,6 +5,7 @@
 
 package StoragesController;
 
+import dal.StoragesDBContext;
 import dal.TypesDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,8 +13,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.sql.Date;
 import java.util.ArrayList;
+import model.Account;
 import model.Category;
+import model.Product;
 
 /**
  *
@@ -72,7 +77,47 @@ public class InsertController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        
+        // String raw_id = request.getParameter("id");
+        String raw_name = request.getParameter("pname");
+        String raw_purchaseMoney = request.getParameter("purchaseMoney");
+        String raw_quantity = request.getParameter("quantityWarehousing");
+        String raw_stocks = request.getParameter("inventory");
+        String raw_doW = request.getParameter("dateofWarehousing");
+        String raw_types = request.getParameter("cid");
+        String raw_unitprice = request.getParameter("unitprice");
+
+        //validate data
+        //  int id = Integer.parseInt(raw_id);
+        int purchaseMoney = Integer.parseInt(raw_purchaseMoney);
+        int quantity = Integer.parseInt(raw_quantity);
+        int stocks = Integer.parseInt(raw_stocks);
+        int unitprice = Integer.parseInt(raw_unitprice);
+        String types = raw_types;
+        int cid = Integer.parseInt(raw_types);
+        String name = raw_name;
+
+        Date doW = Date.valueOf(raw_doW);
+
+        Category t = new Category();
+        t.setName(types);
+        t.setId(cid);
+        Product s = new Product();
+    
+        s.setPname(name);
+        s.setDateofWarehousing(doW);
+        s.setQuantityWarehousing(quantity);
+        s.setPurchaseMoney(purchaseMoney);
+        s.setInventory(stocks);
+        s.setCid(t.getId());
+        s.setUnitprice(unitprice);
+        StoragesDBContext db = new StoragesDBContext();
+        db.insertItems(s , account.getUsername());
+
+       
+        response.sendRedirect("display");
     }
 
     /** 
