@@ -26,7 +26,7 @@ public class UpdateController extends BaseAuthController {
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("pid"));
         TypesDBContext db = new TypesDBContext();
         ArrayList<Category> types = db.getTypes();
         request.setAttribute("types", types);;
