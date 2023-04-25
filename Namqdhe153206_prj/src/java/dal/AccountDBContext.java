@@ -17,7 +17,7 @@ public class AccountDBContext extends DBContext {
 
     public Account getAccount(String username, String password) {
         try {
-            String sql = "SELECT [username], [password], displayname FROM Account\n"
+            String sql = "SELECT [username], [password], displayname FROM Account_HE153206\n"
                     + "WHERE [username] = ? AND [password] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
@@ -38,7 +38,7 @@ public class AccountDBContext extends DBContext {
 
     public Account checkAccountExist(String username) {
         try {
-            String sql = "select * from Account\n"
+            String sql = "select * from Account_HE153206\n"
                     + "where [username] = ?\n";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
@@ -58,7 +58,7 @@ public class AccountDBContext extends DBContext {
 
     public void createAccount(String username, String password, String displayname) {
         try {
-            String sql = "INSERT INTO [Account]\n"
+            String sql = "INSERT INTO [Account_HE153206]\n"
                     + "           ([username]\n"
                     + "           ,[password]\n"
                     + "           ,[displayname])\n"

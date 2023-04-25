@@ -18,12 +18,11 @@
     </head>
     <body>
         <a id="home" href="home">Quay về Trang Chủ</a>
-        <br>
-        <a href="confirmorder">Xác nhận hóa đơn</a>
+        
         <br>
         <%=order.getSize() + " "%> items in the order
 
-        <table id="table" border="5">
+        <table id="table" >
 
             <tbody>
                 <tr>
@@ -52,7 +51,9 @@
         </tr>
     </c:forEach>
 </tbody>
-</table>    
+</table>   
+        <br>
+        <a href="confirmorder">Xác nhận hóa đơn</a>
 <div id ="containerbot" class ="pagger">        </div>
 <script>
     pagger("containerbot",${requestScope.pageindex},${requestScope.totalpage}, 3);

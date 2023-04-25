@@ -12,3 +12,14 @@ tr:nth-child(odd) {background: #FFF}
 tr:nth-child(1) {background: aqua;
 font-weight: bold;
 }
+a{
+    text-decoration: none;
+    border-radius: 3px;
+    border: 2px solid gray;
+    background-color: greenyellow;
+}
+table{
+    margin: auto;
+    size: legal;
+    font-size: x-large;
+}

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Order {
     private ArrayList<OrderDetail> details = new ArrayList<>();
 
-    private Date order_date;
+    private Date orderdate;
     private float profit;
     
     public int getSize() {
@@ -41,12 +41,12 @@ public class Order {
 
    
 
-    public Date getOrder_date() {
-        return order_date;
+    public Date getOrderdate() {
+        return orderdate;
     }
 
-    public void setOrder_date(Date order_date) {
-        this.order_date = order_date;
+    public void setOrderdate(Date orderdate) {
+        this.orderdate = orderdate;
     }
 
     public float getProfit() {

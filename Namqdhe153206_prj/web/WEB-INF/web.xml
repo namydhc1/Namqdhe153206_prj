@@ -2,55 +2,55 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>controller.LoginController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>HomeController</servlet-name>
-        <servlet-class>controller.HomeController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DisplayController</servlet-name>
-        <servlet-class>StoragesController.DisplayController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>InsertController</servlet-name>
-        <servlet-class>StoragesController.InsertController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DeleteController</servlet-name>
-        <servlet-class>StoragesController.DeleteController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UpdateController</servlet-name>
-        <servlet-class>StoragesController.UpdateController</servlet-class>
+        <servlet-class>account_controller1.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegisterController</servlet-name>
-        <servlet-class>controller.RegisterController</servlet-class>
+        <servlet-class>account_controller1.RegisterController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddOrderController</servlet-name>
-        <servlet-class>orderController.AddOrderController</servlet-class>
+        <servlet-name>DisplayController</servlet-name>
+        <servlet-class>storage_controlelr.DisplayController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListStorageController</servlet-name>
-        <servlet-class>orderController.ListStorageController</servlet-class>
+        <servlet-name>InsertController</servlet-name>
+        <servlet-class>storage_controlelr.InsertController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ConfirmController</servlet-name>
-        <servlet-class>orderController.ConfirmController</servlet-class>
+        <servlet-name>UpdateController</servlet-name>
+        <servlet-class>storage_controlelr.UpdateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteController</servlet-name>
+        <servlet-class>storage_controlelr.DeleteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>account_controller1.HomeController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CheckoutController</servlet-name>
-        <servlet-class>orderController.CheckoutController</servlet-class>
+        <servlet-class>order_controller.CheckoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListStorageController</servlet-name>
+        <servlet-class>order_controller.ListStorageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddOrderController</servlet-name>
+        <servlet-class>order_controller.AddOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmController</servlet-name>
+        <servlet-class>order_controller.ConfirmController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DisplayController</servlet-name>
@@ -61,32 +61,32 @@
         <url-pattern>/insert</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteController</servlet-name>
-        <url-pattern>/delete</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>UpdateController</servlet-name>
         <url-pattern>/update</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RegisterController</servlet-name>
-        <url-pattern>/register</url-pattern>
+        <servlet-name>DeleteController</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddOrderController</servlet-name>
-        <url-pattern>/addorder</url-pattern>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/check</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListStorageController</servlet-name>
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ConfirmController</servlet-name>
-        <url-pattern>/confirmorder</url-pattern>
+        <servlet-name>AddOrderController</servlet-name>
+        <url-pattern>/addorder</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CheckoutController</servlet-name>
-        <url-pattern>/checkout</url-pattern>
+        <servlet-name>ConfirmController</servlet-name>
+        <url-pattern>/confirmorder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

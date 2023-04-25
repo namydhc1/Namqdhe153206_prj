@@ -41,22 +41,22 @@
                     </tr>
                     <c:forEach items="${requestScope.storages}" var="s">
                         <tr>
-                            <td>${s.pid}</td>
-                            <td id="${s.name}">${s.pname}</td>
+                            <td>${s.id}</td>
+                            <td id="${s.name}">${s.name}</td>
                             <td>${s.dateofWarehousing}</td>
                             <td>${s.purchaseMoney}</td>
                             <td>${s.quantityWarehousing}</td>
-                            <td>${s.inventory}</td>
-                            <td>${s.cid}</td>
+                            <td>${s.stocks}</td>
+                            <td>${s.types}</td>
                             <td>${s.unitprice}</td>
-                            <td><a id="update" href="update?id=${s.pid}">Thay Đổi Mặt Hàng </a></td>
-                            <td><a id="delete" href="#" onclick="deleteStorage(${s.pid})" >Delete</a></td>
+                            <td><a id="update" href="update?id=${s.id}">Thay Đổi Mặt Hàng </a></td>
+                            <td><a id="delete" href="#" onclick="deleteStorage(${s.id})" >Delete</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
 
-            <div id ="containerbot" class ="pagger"></div>
+            <div id ="containerbot" class ="pagger">        </div>
             <script>
                 pagger("containerbot",${requestScope.pageindex},${requestScope.totalpage}, 3);
             </script>

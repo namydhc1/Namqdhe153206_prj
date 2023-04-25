@@ -3,7 +3,7 @@ package model;
 
 public class OrderDetail {
     private Order order;
-    private Product storage;
+    private Storage storage;
     private int quantity;
     private int unitprice;
     
@@ -26,11 +26,11 @@ public class OrderDetail {
         this.order = order;
     }
 
-    public Product getStorage() {
+    public Storage getStorage() {
         return storage;
     }
 
-    public void setStorage(Product storage) {
+    public void setStorage(Storage storage) {
         this.storage = storage;
     }
 
