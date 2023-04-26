@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <td>Tiền Nhập Hàng</td>
-                        <td><input type="text" name="purchaseMoney" value="${requestScope.storage.purchaseMoney}"/></td>
+                        <td><input type="<i>text</i>" name="purchaseMoney" value="${requestScope.storage.purchaseMoney}"/></td>
                     </tr>
                     <tr>
                         <td>Số Lượng nhập kho </td>

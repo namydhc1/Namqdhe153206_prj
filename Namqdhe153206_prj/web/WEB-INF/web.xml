@@ -44,6 +44,14 @@
         <servlet-name>ConfirmController</servlet-name>
         <servlet-class>order_controller.ConfirmController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderInputManagementController</servlet-name>
+        <servlet-class>order_controller.OrderInputManagementController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StorageManagement</servlet-name>
+        <servlet-class>storage_controlelr.StorageManagement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>ConfirmController</servlet-name>
         <url-pattern>/confirmorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderInputManagementController</servlet-name>
+        <url-pattern>/orderinputmanager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StorageManagement</servlet-name>
+        <url-pattern>/storagemanagement</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

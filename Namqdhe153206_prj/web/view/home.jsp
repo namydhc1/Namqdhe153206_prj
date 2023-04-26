@@ -12,10 +12,11 @@
         <div class="bg-img">
             <div class="container">
                 <div class="centered">
-                    <div class="box"><h1>Bạn muốn thực hiện việc gì</h1></div> 
-
-                    <button>  <h2 id ="display"><a href="display">Kiểm tra kho hàng</a></h2></button>
-                  <button>  <h2><a href="check">Kiểm tra hóa đơn</a></h2></button>
+                    <div class="box"><h1>Welcome</h1></div> 
+                    <button> <h2 id ="display"><a href="orderinputmanager">Quản lý nhập kho</a></h2></button><br/><br/>
+                    <button>  <h2 id ="display"><a href="display">Sản phẩm</a></h2></button><br/><br/>
+                    <button>  <h2 id ="display"><a href="storagemanagement">Kho hàng</a></h2></button><br/><br/>
+                  <button>  <h2><a href="check">Quản lý xuất kho</a></h2></button>
                 </div>
             </div>
         </div>

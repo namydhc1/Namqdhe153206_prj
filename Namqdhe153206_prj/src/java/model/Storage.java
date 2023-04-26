@@ -16,6 +16,7 @@ public class Storage {
     private int unitprice;   
     private int quantitysell;
 
+
     public int getId() {
         return id;
     }
