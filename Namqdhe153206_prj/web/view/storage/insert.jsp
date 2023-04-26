@@ -11,7 +11,7 @@
         <form action="insert" method="POST">
             <!--            <input type="hidden" name="" value="34657">-->
 
-            <table style="width: 75%" border="1">
+            <table style="width: 75%" >
 
                 <tbody>
                     <tr>
